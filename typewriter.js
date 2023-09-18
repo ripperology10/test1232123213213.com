@@ -4,7 +4,7 @@ function typeWriterEffect(text){
   var typewriterELEMENT = document.getElementById("TYPEWRITER");
   typewriterELEMENT.innerHTML = "";
   function TYPE(){
-    if (integer < text.Length){
+    if (integer < text.length){
       typewriterELEMENT.innerHTML += text.charAt(integer);
       integer++;
       setTimeout(TYPE, speed);
