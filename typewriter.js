@@ -15,4 +15,4 @@ function typeWriterEffect(text){
 
 document.AddEventListener("DOMContentLoaded", function(){
   typeWriterEffect("TEST");
-}
+})
