@@ -13,6 +13,6 @@ function typeWriterEffect(text){
   TYPE();
 }
 
-document.AddEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
   typeWriterEffect("TEST");
 })
