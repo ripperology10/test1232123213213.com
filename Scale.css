@@ -6,7 +6,7 @@
 }
 .body2{
   position: absolute;
-  left: -5px;
+  left: -6px;
   top: 293px;
   
 }
@@ -18,5 +18,7 @@
   display: block;
 }
 @media only screen and (max-width: 992px){
-  
+  .blog_body{
+    left: 24%;
+  }
 }
