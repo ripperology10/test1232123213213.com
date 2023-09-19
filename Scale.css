@@ -17,7 +17,7 @@
   right: 0px; 
   display: block;
 }
-@media only screen and (max-width: 992px){
+@media only screen and (min-width: 992px){
   .blog_body{
     left: 240px;
   }
