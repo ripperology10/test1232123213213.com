@@ -1,3 +1,9 @@
+.blog_body{
+  position: absolute;
+  left: 160px;
+  top: 160px;
+  display: block;
+}
 .body2{
   position: absolute;
   left: -20px;
