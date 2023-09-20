@@ -21,4 +21,8 @@
   .blog_body{
     left: 240px;
   }
+  .buttons{
+    width: 50%;
+    height: 50%
+  }
 }
