@@ -10,6 +10,10 @@
   top: 293px;
   
 }
+.body3{
+  position: absolute;
+  left: 700px;
+}
 .buttons{
   position: absolute; 
   top: 130px; 
