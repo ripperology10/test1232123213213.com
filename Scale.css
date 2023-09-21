@@ -30,6 +30,10 @@
   }
 }
 @media only screen and (min-width: 320px){
+  .blog_body{
+    top: 420px;
+    left: 10px;
+  }
   .body3{
     left: 150px;
   }
