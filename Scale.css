@@ -25,6 +25,10 @@
   right: 0px; 
   display: block;
 }
+.buttons_icon{
+  width: 60px;
+  height: 50px;
+}
 @media only screen and (min-width: 992px){
   .blog_body{
     left: 220px;
