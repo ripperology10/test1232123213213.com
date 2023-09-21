@@ -14,5 +14,5 @@ function typeWriterEffect(text){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-  typeWriterEffect("TEST");
+  typeWriterEffect("PLEASE WAIT WHILE THE PANEL LOADS.");
 })
