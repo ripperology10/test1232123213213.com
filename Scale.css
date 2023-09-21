@@ -46,7 +46,7 @@
     height: 280px;
   }
   .body2{
-    top: 1000px;
+    top: 910px;
   }
 }
 @media only screen and (max-width: 600px){
@@ -56,5 +56,8 @@
   }
   .body3{
     left: 560px;
+  }
+  .body2{
+    top: 293px;
   }
 }
