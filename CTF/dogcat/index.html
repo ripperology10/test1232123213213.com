@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>DOGCAT</title>
+  <link rel="stylesheet" href="../../glitching.css">
+  <link rel="stylesheet" href="../../Scale.css">
+  
+</head>
+<body style="background-color: black;">
+  <center>
+    <img src="../Cover.jpeg" style="width: 210px; height: 110px;">
+    <hr style="color: white;">
+  </center>
+  <div class="blog_body">
+  <h1 class="glitch" data-text="DOGCAT: WALKTHROUGH" style="color: white; position: absolute; top: -30px; left: -4px; font-size: 30px;">DOGCAT: WALKTHROUGH</h1>
+    <p style="color: white; position: absolute; top: 23px; width: 500px;">posted in: Sept, 20, 2023</p>
+    <img src="Cover.png" style="width:400px; height:250px; position: absolute; top: 60px; left: -4px; display: block;">
+    <p style="color: white; position: absolute; top: 300px; width: 500px">
+      In this blog, ill be walking you through to solving a beginner ctf from THM(TRYHACKME).
+      in this ctf we will be introduced to the concept of LFI(Local File Inclusion) and Reverse
+      shell with PHP shell.
+      <br><br>
+      Tools to be used:
+      <ul style="color: white; position: absolute; top:400px; width: 500px">
+        <li class="glitch" data-type="" style="font-size:15px;">Nmap - Reverse shell, Network scan</li>
+        <li class="glitch" data-type="" style="font-size:15px;">PHP Shell - Reverse shell</li>
+        <li class="glitch" data-type="" style="font-size:15px;">Burp Suite</li>
+      </ul>
+      <h1 style="color: white; position: absolute; top: 470px">RECONNAISANCE</h1>
+      <p style="color: white; position: absolute; top: 490px; width: 500px;">
+        Lets start by scanning the website first for open ports:<br>
+        <p style="color: pink; position: absolute; top: 510px; width:500px">nmap -sC -sV -T5 (machine ip)<br>output: 22 and 80 port is open</p>
+        <p style="color: white; position: absolute; top: 548px; width: 500px">We saw that 22 port which is the SSH service is open while the 80 port which is a web service is open, lets check the port 80.</p>
+        <img src="Img1.png" style="width: 400px; height: 250px; position: absolute; top: 612px;">
+      </p>
+      <p style="color: white; position: absolute; top: 860px; width: 500px;">We see that there are two buttons to click/choose from,
+        choosing any of these leads to using a php parameter on the website; therefore our injection point discovery is the php parameter.
+        For every button we click, we access different img since the button itself generates random numbers that picks different files. This
+        will be explained later on once we access the ".php" file. Since we access the different files generated, our first attack to use is LFI(Local
+        File Inclusion)
+      </p>
+      <img src="img2.png" style="width: 400px; height: 250px; position: absolute; top: 1020px">
+      <p style="color: white; position: absolute; top: 1260px; width: 500px">
+        After trying the attack, a problem arises. The output from the website is that dog and cat is only allowed.
+        we can fix this if we include dog or cat in our payload: 
+        <br>"?view=dog../../../../../../etc/passwd%00"
+        <br>
+        The output we get is different this time, while it pops out a php error thats the output we actually need
+        to check if our payload has worked. <br> We should check out a different file using this attack, most notably
+        the ".php" file we talked about before in this blog.
+      </p>
+      <p style="color: pink; position: absolute; top: 1410px; width: 500px;">view=php://filter/convert.base64-encode/resource=dog../../../../../../var/www/html/index</p>
+      <p style="color: white; position: absolute; top: 1450px; width: 500px">
+        After decoding the code, we see that the parameter is really open to LFI attacks, lets use this
+        to access sensitive files most notably the apache.log
+      </p>
+      <h1 style="color: white; position: absolute; top: 1530px">
+        ATTACK
+        <img src="Img3.png" style="width: 400px; height: 250px; position: absolute; top: 40px; left:-1px">
+        <p style="color: white; font-size: 15px; width: 500px; position: absolute; top: 290px;">
+          After acessing the access log, we see our browser agent is saved too. we can use this to perform another attack:
+        </p>
+        <img src="Img6.png" style="width: 400px; height: 250px; position: absolute; top: 350px; left: -1px;"> 
+        
+      </h1>
+    </p>
+  </div>
+  <div class="buttons">
+    <button style="background-color: transparent; border: none; display: block;"><img class="buttons_icon"src="../file_icon.png"><a href=""style="color: white;">DOCUMENTS</a></button>
+  </div>
+</body>
+</html>
 
